@@ -43,26 +43,27 @@ The resulting array of cluster values was as below </br>
 ![image](https://github.com/jyojay/CryptoClustering/assets/132628129/a0ab89b6-61c4-4b8e-a00a-11313239bb1a) </br>
 
 A scatter plot was plotted with x="price_change_percentage_24h", y="price_change_percentage_7d" colour coded by labels found using k-means and adding the crypto name in the `hover_cols` </br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/42517c54-1339-40e2-9211-0e5to 1b48e2389) </br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/82f570bd-4d9b-405a-89c8-428f593ba46c) </br>
 
 ### Optimise Clusters with Principal Component Analysis.
 Using `n_components=3` created a PCA model instance then used `fit_transform` to reduce to three principal components. Retrieved the explained variance to determine how much information could be attributed to each principal component </br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/673f1b1f-76ac-4f89-9c51-1449ed164256) <\br>
-Total explained variance of the 3 principal components was found to be 0.89317787 or **89%** <\br>
-Created a new dataframe with PCA data <\br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/cee59daf-92f4-43a5-9197-a433f06cdfc0) <\br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/673f1b1f-76ac-4f89-9c51-1449ed164256) </br>
+Total explained variance of the 3 principal components was found to be 0.89317787 or **89%** </br> 
+Created a new dataframe with PCA data</br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/cee59daf-92f4-43a5-9197-a433f06cdfc0) </br>
 
 ### Find the Best Value for k Using the PCA Data
-Inertia was computed for eac possible value of k using PCA data and an elbow curve was drawn as below <\br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/7545212e-c1a7-4f6c-9d0a-a611d262e6a9) <\br>
-**The best value of k was found to be 4 using PCA data** same as the value found using original scaled data <\br>
+Inertia was computed for eac possible value of k using PCA data and an elbow curve was drawn as below </br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/7545212e-c1a7-4f6c-9d0a-a611d262e6a9) </br>
+**The best value of k was found to be 4 using PCA data** same as the value found using original scaled data
 
 ### Cluster Cryptocurrencies with K-means Using the PCA Data
-Using number of clusters = 4 based onthe best k value, model was initialised and fit followed by predicting clusters.
+Using number of clusters = 4 based onthe best k value, model was initialised and fit followed by predicting clusters.</br>
 The resulting array of cluster values was as below </br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/e3cb6277-0f40-4904-8747-ee659e0c3ffd) <\br>
-![image](https://github.com/jyojay/CryptoClustering/assets/132628129/7a42a552-bd56-4f97-a7ee-30f4a80914f3) <\br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/e3cb6277-0f40-4904-8747-ee659e0c3ffd) </br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/7a42a552-bd56-4f97-a7ee-30f4a80914f3) </br>
 A scatter plot was plotted with x="PC1", y="PC2" colour coded by labels found using k-means and adding the crypto name in the `hover_cols` </br>
+![image](https://github.com/jyojay/CryptoClustering/assets/132628129/2275e7bf-619d-40f4-b100-c6de06ed30f7)
 
 ### Visualise and Compare the Results
 `(original_data_plot + pca_data_plot).cols(1)` and `(original_data_scatter + pca_data_scatter).cols(1)` were used to create composite plots one on top of the other to compare results from original scaled data and PCA data of both Elbow curve and scatter plot
